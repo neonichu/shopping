@@ -8,6 +8,7 @@ Citrus.require 'Cartfile'
 module Shopping
 	class Dependency
 		attr_reader :branch
+		attr_reader :repo
 		attr_reader :version
 
 		def initialize(dependency_match)
@@ -51,6 +52,23 @@ module Shopping
 					Dependency.new(dependency.first.captures)
 				end
 			end.compact
+		end
+	end
+
+	class Podfile
+		def self.serialize(dependencies)
+			dependencies.map do |dependency|
+				pod = "pod '#{dependency.name}'"
+
+				if (!dependency.branch && !dependency.version) || dependency.repo == 'git'
+					pod += ", :git => '#{dependency.url}'"
+				end
+
+				pod += ", :branch => '#{dependency.branch}'" if dependency.branch
+				pod += ", '#{dependency.version.sub('==', '=')}'" if dependency.version
+
+				pod
+			end.join("\n")
 		end
 	end
 end
