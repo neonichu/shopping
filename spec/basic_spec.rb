@@ -40,7 +40,7 @@ module Shopping
 
 			match.name.should == 'git-error-translations'
 			match.url.should == 'https://enterprise.local/desktop/git-error-translations.git'
-			match.version.should == ''
+			match.version.should == nil
 			match.branch.should == 'development'
 		end
 

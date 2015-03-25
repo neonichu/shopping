@@ -17,6 +17,7 @@ module Shopping
 			@repo = dependency_match['repo'].first.to_s
 			@path = unquote(quoted_string)
 			@version = version_spec.first.to_s
+			@version = nil if @version.length == 0
 
 			if quoted_string.count == 2
 				@branch = unquote([quoted_string[1]])
