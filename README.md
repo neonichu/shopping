@@ -1,5 +1,10 @@
 # Shopping
 
+[![Build Status](http://img.shields.io/travis/neonichu/shopping/master.svg?style=flat)](https://travis-ci.org/neonichu/shopping)
+[![Coverage Status](https://coveralls.io/repos/neonichu/shopping/badge.svg)](https://coveralls.io/r/neonichu/shopping)
+[![Gem Version](http://img.shields.io/gem/v/shoppingcart.svg?style=flat)](http://badge.fury.io/rb/shoppingcart)
+[![Code Climate](http://img.shields.io/codeclimate/github/neonichu/shopping.svg?style=flat)](https://codeclimate.com/github/neonichu/shopping)
+
 Parse Cartfiles in Ruby, be happy.
 
 ## Installation
