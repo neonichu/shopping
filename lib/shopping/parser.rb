@@ -4,6 +4,7 @@ grammars = ::File.expand_path(::File.join('..', 'grammars'), __FILE__)
 $LOAD_PATH.unshift(grammars) unless $LOAD_PATH.include?(grammars)
 
 Citrus.require 'Cartfile'
+Citrus.require 'Resolved'
 
 module Shopping
 	class Dependency
@@ -44,6 +45,20 @@ module Shopping
 		end
 	end
 
+	class ResolvedDependency < Dependency
+		attr_reader :commit
+		attr_reader :tag
+
+		def initialize(dependency_match)
+			super(dependency_match)
+
+			@branch = nil
+			@commit = unquote(dependency_match['commit'])
+			@tag = unquote(dependency_match['tag'])
+			@version = nil
+		end
+	end
+
 	class Parser
 		def self.parse(path)
 			Cartfile.parse(Pathname.new(path).read).matches.map do |match|
@@ -52,6 +67,13 @@ module Shopping
 					Dependency.new(dependency.first.captures)
 				end
 			end.compact
+		end
+
+		def self.parse_resolved(path)
+			Resolved.parse(Pathname.new(path).read).matches.map do |match|
+				resolved = match.captures[:resolved_dependency]
+				ResolvedDependency.new(resolved.first.captures)
+			end
 		end
 	end
 

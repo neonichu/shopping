@@ -1,0 +1,29 @@
+grammar Resolved
+	rule Resolved
+		(resolved_dependency "\n")+
+	end
+
+	rule resolved_dependency
+		repo " " quoted_string " " (commit | tag)
+	end
+
+	rule repo
+		"github" | "git"
+	end
+
+	rule tag
+		quoted_string
+	end
+
+	rule commit
+		'"' [0-9a-z]+ '"'
+	end
+
+	rule quoted_string
+		'"' ASCII '"'
+	end
+
+	rule ASCII
+		([\x20\x23-\x5B\x5D-\x7E])*
+	end
+end
