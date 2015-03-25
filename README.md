@@ -17,11 +17,15 @@ gem 'shopping'
 
 And then execute:
 
-    $ bundle
+```bash
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install shopping
+```bash
+$ gem install shopping
+```
 
 ## Contributing
 
