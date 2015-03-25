@@ -1,0 +1,37 @@
+grammar Cartfile
+	rule Cartfile
+		((dependency | comment)? "\n")+
+	end
+
+	rule dependency
+		repo " " quoted_string (" " (version_spec | quoted_string))? (" " comment)?
+	end
+
+	rule repo
+		"github" | "git"
+	end
+
+	rule quoted_string
+		'"' ASCII '"'
+	end
+
+	rule ASCII
+		([\x20\x23-\x5B\x5D-\x7E])*
+	end
+
+	rule comment
+		"#" ASCII
+	end
+
+	rule version
+		[0-9] "." [0-9] ("." [0-9])?
+	end
+
+	rule operator
+		">=" | "~>" | "=="
+	end
+
+	rule version_spec
+		operator " " version
+	end
+end
