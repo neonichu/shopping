@@ -48,7 +48,7 @@ module Shopping
 			match = Parser.parse('spec/fixtures/TestCartfile')
 
 			match.first.name.should == 'ReactiveCocoa'
-			match.first.url.should == 'https://github.com/ReactiveCocoa/ReactiveCocoa'
+			match.first.url.should == 'https://github.com/ReactiveCocoa/ReactiveCocoa.git'
 			match.first.version.should == '>= 2.3.1'
 		end
 	end

@@ -30,7 +30,7 @@ module Shopping
 		end
 
 		def url
-			@repo == "git" ? @path : "https://github.com/#{@path}"			
+			@repo == "git" ? @path : "https://github.com/#{@path}.git"			
 		end
 
 		def to_s
