@@ -1,0 +1,5 @@
+spec.dependency 'ReactiveCocoa'
+spec.dependency 'Mantle'
+spec.dependency 'libextobjc'
+spec.dependency 'xcconfigs'
+spec.dependency 'git-error-translations'

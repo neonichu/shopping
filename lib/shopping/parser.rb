@@ -93,4 +93,12 @@ module Shopping
 			end.join("\n")
 		end
 	end
+
+	class Podspec
+		def self.serialize(dependencies)
+			dependencies.map do |dependency|
+				pod = "spec.dependency '#{dependency.name}'"
+			end.join("\n")
+		end
+	end
 end
