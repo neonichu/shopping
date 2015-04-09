@@ -98,6 +98,9 @@ module Shopping
 		def self.serialize(dependencies)
 			dependencies.map do |dependency|
 				pod = "spec.dependency '#{dependency.name}'"
+				pod += ", '#{dependency.version.sub('==', '=')}'" if dependency.version
+
+				pod
 			end.join("\n")
 		end
 	end
