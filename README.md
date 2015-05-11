@@ -12,7 +12,7 @@ Parse Cartfiles in Ruby, be happy.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'shopping'
+gem 'shoppingcart'
 ```
 
 And then execute:
@@ -24,7 +24,7 @@ $ bundle
 Or install it yourself as:
 
 ```bash
-$ gem install shopping
+$ gem install shoppingcart
 ```
 
 ## Contributing
